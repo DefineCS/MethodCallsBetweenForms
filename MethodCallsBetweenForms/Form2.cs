@@ -17,7 +17,7 @@ namespace MethodCallsBetweenForms
             InitializeComponent();
         }
 
-        public Form2(List<Action> a) //public List<Action>  Form2m(params Action[] a)
+        public Form2(List<Action<string>> a) //public List<Action>  Form2m(params Action[] a)
         {
             ll.Add(a1);
             ll.Add(a2);
@@ -30,7 +30,7 @@ namespace MethodCallsBetweenForms
         = new List<Action>();
         //List<Action> lm = new List<Action>();
         //public List<Action> ll { get { return lm; } } //定义公共属性，以便Form1中实例化对象调用
-        List<Action> lmF1 = new List<Action>();//接收Form1实例化Form2时传过来的参数（Form1中的方法的集合）
+        List<Action<string>> lmF1 = new List<Action<string>>();//接收Form1实例化Form2时传过来的参数（Form1中的方法的集合）
 
         private void a1()
         {
@@ -46,10 +46,10 @@ namespace MethodCallsBetweenForms
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            Action[] a = lmF1.ToArray();
+            Action<string>[] a = lmF1.ToArray();
             for (int i = 0; i < a.Length; i++)
             {
-                a[i].Invoke();
+                a[i].Invoke("Form2传递参数并调用Form1的方法！");
                 //Thread.Sleep(1000);
             }
         }

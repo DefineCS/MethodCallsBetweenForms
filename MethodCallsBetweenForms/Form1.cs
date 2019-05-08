@@ -24,15 +24,15 @@ namespace MethodCallsBetweenForms
             f2 = new Form2(la);
             f2.Show();
         }
-        List<Action> la = new List<Action>();
+        List<Action<string >> la = new List<Action<string >>();
         Form2 f2;
-        private void a1f1()
+        private void a1f1(string s)
         {
-            textBox1.Text = System.DateTime.Now.ToString() + ":调用了Form1的a1";
+            textBox1.Text = System.DateTime.Now.ToString() + ":调用了Form1的a1,"+s;
         }
-        private void a2f1()
+        private void a2f1(string s)
         {
-            textBox2.Text = System.DateTime.Now.ToString() + ":调用了Form1的a2";
+            textBox2.Text = System.DateTime.Now.ToString() + ":调用了Form1的a2," + s;
         }
 
         private void button1_Click(object sender, EventArgs e)
